@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.views import generic
+''' Imports '''
+from django.shortcuts import render, get_object_or_404
+from django.views import generic, View
 from .models import Post
 
 
@@ -14,3 +15,28 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     # how many posts we want to see on the page at one time.
     paginate_by = 6
+
+
+class PostDetail(View):
+    ''' Add definition '''
+    def get(self, request, slug, *args, **kwargs):
+        """ Add description """
+        # First filter through the post so we get just the active ones.
+        queryset = Post.objects.filter(status=1)
+        # Get specific post via its slug.
+        post = get_object_or_404(queryset, slug=slug)
+        # Then get the approved comments attached to that post.
+        comments = post.comments.filter(approved=True).order_by('created_on')
+        # Find out if logged in user has liked the post.
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        return render(
+            request,
+            "post_detail.html",
+            {
+                "post": post,
+                "comments": comments,
+                "liked": liked
+            },
+        )
