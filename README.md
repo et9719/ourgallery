@@ -92,3 +92,8 @@ This helped me break the project down into smaller tasks that would be more mana
 
 ## Features
 
+
+
+
+
+images from : https://www.istockphoto.com/

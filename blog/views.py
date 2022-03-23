@@ -14,7 +14,7 @@ class PostList(generic.ListView):
     # them by the date they were created on.
     queryset = Post.objects.filter(status=1).order_by('-created_on')
     # What page users will see this on
-    template_name = 'index.html'
+    template_name = 'gallery.html'
     # how many posts we want to see on the page at one time.
     paginate_by = 6
 
