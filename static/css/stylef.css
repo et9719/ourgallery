@@ -1,3 +1,4 @@
+
 .navbar-brand {
     font-size: 500%;
 }
@@ -53,12 +54,15 @@
 }
 
 
-@media (max-width: 1030px) {
+@media (max-width: 1090px) {
     .navbar-brand {
         font-size: 400%;
     }
     .navtxt {
         font-size: 150%;
+    }
+    .navbar-nav .nav-link {
+        padding: 0;
     }
 }
 
@@ -88,14 +92,11 @@
         display: inline-flex;
     }
     .nav-item {
-        padding: 10%;
-    }
-    #nav-logout {
-        padding-right: 40px;
+        padding: 10% 2% 2% 2%;
     }
 }
 
-@media (max-width: 560px) { 
+@media (max-width: 615px) { 
     .navtxt {
         font-size: 100%;
     }
@@ -104,9 +105,26 @@
         position: relative;
         bottom: 20px;
     }
+    .nav-item {
+        padding: 15% 2% 2% 2%;
+    }
 }
 
 
+
+.btn-signup {
+    background-color: #ffd966;
+    color: black;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #ff8c66;
+}
+
+.signup-container {
+    padding: 5%;
+}
 
 /* .image-flash {
     position: absolute;
@@ -176,18 +194,6 @@
     -moz-transform: skew(15deg);
     transform: skew(15deg);
     z-index: 100;
-}
-
-
-.btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
 }
 
 .link {
